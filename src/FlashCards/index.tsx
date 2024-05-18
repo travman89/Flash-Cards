@@ -3,10 +3,15 @@ import {
   AnswerCard,
   QuestionCard,
   CardContainer,
-  NextButton,
   CardBadge,
   CardText,
-  BuildQuizButton,
+  ButtonContainer,
+  Spacer,
+  PreviousButton,
+  NextButton,
+  CorrectButton,
+  IncorrectButton,
+  AnswerText,
 } from "./components";
 import { FlashCard } from "../types";
 import { SCREENS } from "../constants";
@@ -15,11 +20,18 @@ import { SCREENS } from "../constants";
 const FlashCards = ({
   cards,
   setScreen,
+  currentIndex,
+  setCurrentIndex,
+  markCorrect,
+  markIncorrect,
 }: {
   cards: FlashCard[];
   setScreen: (screen: SCREENS) => void;
+  currentIndex: number;
+  setCurrentIndex: (index: number) => void;
+  markCorrect: () => void;
+  markIncorrect: () => void;
 }) => {
-  const [currentCard, setCurrentCard] = useState(0);
   const [reveal, setReveal] = useState(false);
 
   const revealCard = () => {
@@ -27,7 +39,12 @@ const FlashCards = ({
   };
 
   const nextCard = () => {
-    setCurrentCard(currentCard + 1);
+    setCurrentIndex(currentIndex + 1);
+    setReveal(false);
+  };
+
+  const previousCard = () => {
+    setCurrentIndex(currentIndex - 1);
     setReveal(false);
   };
 
@@ -39,18 +56,30 @@ const FlashCards = ({
     <>
       <CardContainer>
         <QuestionCard>
-          <CardBadge>{cards[currentCard].subject}</CardBadge>
-          <CardText>{cards[currentCard].question}</CardText>
+          <CardBadge>{cards[currentIndex].subject}</CardBadge>
+          <CardText>{cards[currentIndex].question}</CardText>
         </QuestionCard>
         <AnswerCard onClick={revealCard} reveal={reveal}>
-          <CardText>{reveal ? cards[currentCard].answer : ""}</CardText>
+          <AnswerText reveal={reveal}>
+            {reveal ? cards[currentIndex].answer : "Click to reveal..."}
+          </AnswerText>
         </AnswerCard>
       </CardContainer>
-
-      {cards.length > currentCard + 1 && (
-        <NextButton onClick={nextCard}>Next</NextButton>
-      )}
-      <BuildQuizButton onClick={buildQuizPress}>Build New Quiz</BuildQuizButton>
+      <ButtonContainer>
+        {currentIndex === 0 ? (
+          <Spacer />
+        ) : (
+          <PreviousButton onClick={previousCard}>Previous</PreviousButton>
+        )}
+        {currentIndex === cards.length - 1 ? (
+          <Spacer />
+        ) : (
+          <NextButton onClick={nextCard}>Next</NextButton>
+        )}
+        <IncorrectButton onClick={markIncorrect}>Incorrect</IncorrectButton>
+        <CorrectButton onClick={markCorrect}>Correct</CorrectButton>
+      </ButtonContainer>
+      {/* <BuildQuizButton onClick={buildQuizPress}>Build New Quiz</BuildQuizButton> */}
     </>
   );
 };

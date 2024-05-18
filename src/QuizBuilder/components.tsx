@@ -4,7 +4,7 @@ const SelectionCard = styled.div`
   position: relative;
   min-height: 300px;
   min-width: 500px;
-  background-color: #eee;
+  background-color: #fff;
   max-width: 45%;
   border-radius: 10px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
@@ -32,28 +32,33 @@ const SelectorButton = styled.button<{ selected: boolean }>`
   margin: 0 auto;
   padding: 5px 10px;
   width: 80px;
-  border-radius: 30px;
+  border-radius: 5px;
   cursor: ${(props) => (props.selected ? "default" : "pointer")};
   transition: all 0.3s;
   font-weight: bold;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+  transition: all 0.3s;
+  &:active {
+    transform: scale(0.97);
+  }
 `;
 
 const SubjectButton = styled(SelectorButton)`
-  background-color: ${(props) => (props.selected ? "#023047" : "white")};
-  color: ${(props) => (props.selected ? "white" : "#023047")};
-  border: 1px solid #023047;
+  background-color: ${(props) => (props.selected ? "#0000b0" : "white")};
+  color: ${(props) => (props.selected ? "white" : "#0000b0")};
+  border: 1px solid #0000b0;
 `;
 
 const AuthorButton = styled(SelectorButton)`
-  background-color: ${(props) => (props.selected ? "#FB8500" : "white")};
-  color: ${(props) => (props.selected ? "white" : "#FB8500")};
-  border: 1px solid #fb8500;
+  background-color: ${(props) => (props.selected ? "#FFA500" : "white")};
+  color: ${(props) => (props.selected ? "white" : "#FFA500")};
+  border: 1px solid #ffa500;
 `;
 
 const AllButton = styled(SelectorButton)`
-  background-color: ${(props) => (props.selected ? "#12BF7A" : "white")};
-  color: ${(props) => (props.selected ? "white" : "#12BF7A")};
-  border: 1px solid #12bf7a;
+  background-color: ${(props) => (props.selected ? "#54647c" : "white")};
+  color: ${(props) => (props.selected ? "white" : "#54647c")};
+  border: 1px solid #54647c;
 `;
 
 const TopFilterContainer = styled.div`
@@ -86,12 +91,17 @@ const SubmitQuizButton = styled.button`
   all: unset;
   cursor: pointer;
   padding: 10px 20px;
-  background-color: #023047;
-  color: #eee;
+  background-color: #008000;
+  color: #fff;
   margin: 20px auto;
-  tex-align: center;
-  border-radius: 30px;
+  text-align: center;
+  border-radius: 5px;
   font-weight: bold;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+  transition: all 0.3s;
+  &:active {
+    transform: scale(0.97);
+  }
 `;
 
 export {

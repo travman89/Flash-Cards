@@ -5,7 +5,7 @@
 
   color-scheme: light dark;
   color: rgba(255, 255, 255, 0.87);
-  background-color: #219ebc;
+  background-color: #e3e3e3;
 
   font-synthesis: none;
   text-rendering: optimizeLegibility;
@@ -14,12 +14,7 @@
 }
 
 
-/* 
-#023047
-#219ebc
-#8ecae6
-#ffb703
-#FB8500
-#c1121f
-#12BF7A
-*/
+/* Orange: #FFA500
+Red: #FF0000
+Green: #008000
+Blue: #0000b0 */

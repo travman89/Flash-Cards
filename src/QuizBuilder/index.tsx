@@ -23,10 +23,10 @@ import {
 import { FlashCard } from "../types";
 
 const QuizBuilder = ({
-  setCards,
+  setQuiz,
   setScreen,
 }: {
-  setCards: (cards: FlashCard[]) => void;
+  setQuiz: (cards: FlashCard[]) => void;
   setScreen: (screen: SCREENS) => void;
 }) => {
   const authorList = buildAuthorList(cardList);
@@ -41,14 +41,34 @@ const QuizBuilder = ({
 
   const filterSubject = () => {
     setFilterSelection(FILTER_OPTIONS.SUBJECT);
-    setSelectedCards(
-      filterBySelectedSubjectList(selectedSubjectCards, cardList)
-    );
+    if (selectedAuthorCards.length > 0) {
+      setSelectedCards(
+        filterBySelectedAuthorList(
+          selectedAuthorCards,
+          filterBySelectedSubjectList(selectedSubjectCards, cardList)
+        )
+      );
+    } else {
+      setSelectedCards(
+        filterBySelectedSubjectList(selectedSubjectCards, cardList)
+      );
+    }
   };
 
   const filterAuthor = () => {
     setFilterSelection(FILTER_OPTIONS.AUTHOR);
-    setSelectedCards(filterBySelectedAuthorList(selectedAuthorCards, cardList));
+    if (selectedSubjectCards.length > 0) {
+      setSelectedCards(
+        filterBySelectedSubjectList(
+          selectedSubjectCards,
+          filterBySelectedAuthorList(selectedAuthorCards, cardList)
+        )
+      );
+    } else {
+      setSelectedCards(
+        filterBySelectedAuthorList(selectedAuthorCards, cardList)
+      );
+    }
   };
 
   const filterAll = () => {
@@ -81,7 +101,7 @@ const QuizBuilder = ({
   };
 
   const submitQuiz = () => {
-    setCards(shuffle([...selectedCards]));
+    setQuiz(shuffle([...selectedCards]));
     setScreen(SCREENS.FLASH_CARDS);
   };
 

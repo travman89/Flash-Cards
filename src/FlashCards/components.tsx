@@ -1,14 +1,16 @@
 import styled from "styled-components";
 
+const AppContainer = styled.div``;
+
 const Card = styled.div`
   position: relative;
   min-height: 300px;
   min-width: 500px;
-  background-color: #eee;
+  background-color: #fff;
   max-width: 45%;
   padding: 20px;
   border-radius: 10px;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
   &:first-child {
     margin-bottom: 20px;
   }
@@ -26,26 +28,8 @@ const CardContainer = styled.div`
   margin-top: 6vh;
 `;
 
-const AppContainer = styled.div`
+const ContentContainer = styled.div`
   text-align: center;
-`;
-
-const NextButton = styled.button`
-  all: unset;
-  cursor: pointer;
-  padding: 10px 20px;
-  background-color: #023047;
-  color: #eee;
-  margin: 20px auto 0;
-  tex-align: center;
-  border-radius: 30px;
-  font-weight: bold;
-  width: 150px;
-  display: block;
-`;
-
-const BuildQuizButton = styled(NextButton)`
-  background-color: #fb8500;
 `;
 
 const AnswerCard = styled(Card)<{ reveal: boolean }>`
@@ -53,7 +37,7 @@ const AnswerCard = styled(Card)<{ reveal: boolean }>`
 `;
 
 const CardBadge = styled.div`
-  background-color: #3b0147;
+  background-color: #54647c;
   color: white;
   padding: 5px 10px;
   border-radius: 26px;
@@ -67,19 +51,89 @@ const CardBadge = styled.div`
 const CardText = styled.p`
   font-size: 24px;
   text-align: left;
-  tex-indent: 20px;
+  text-indent: 20px;
   color: #101010;
+`;
+
+const AnswerText = styled(CardText)<{ reveal: boolean }>`
+  opacity: ${(props) => (props.reveal ? 1 : 0.4)};
 `;
 
 const QuestionCard = styled(Card)``;
 
+const ButtonContainer = styled.div`
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  text-align: center;
+  align-items: center;
+  margin: 20px auto;
+  width: 540px;
+  max-width: 540px;
+`;
+
+const Spacer = styled.div`
+  width: 120px;
+  height: 40px;
+  max-width: 120px;
+  max-height: 40px;
+  min-width: 120px;
+  min-height: 40px;
+`;
+
+const QuizButton = styled.button`
+  width: 120px !important;
+  height: 40px !important;
+  max-width: 120px;
+  max-height: 40px;
+  min-width: 120px;
+  min-height: 40px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: all 0.3s;
+  font-weight: bold;
+  color: white;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+`;
+
+const PreviousButton = styled(QuizButton)`
+  border: 1px solid #0000b0;
+  background-color: #0000b0;
+  &:active {
+    transform: scale(0.97);
+  }
+`;
+
+const NextButton = styled(PreviousButton)``;
+
+const IncorrectButton = styled(QuizButton)`
+  border: 1px solid #ff0000;
+  background-color: #ff0000;
+  &:active {
+    transform: scale(0.97);
+  }
+`;
+
+const CorrectButton = styled(QuizButton)`
+  border: 1px solid #00bb00;
+  background-color: #00bb00;
+  &:active {
+    transform: scale(0.97);
+  }
+`;
 export {
   AnswerCard,
   QuestionCard,
   CardContainer,
-  AppContainer,
-  NextButton,
+  ContentContainer,
   CardBadge,
   CardText,
-  BuildQuizButton,
+  AppContainer,
+  AnswerText,
+  ButtonContainer,
+  Spacer,
+  PreviousButton,
+  NextButton,
+  CorrectButton,
+  IncorrectButton,
 };
