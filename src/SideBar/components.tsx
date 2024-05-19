@@ -17,8 +17,10 @@ const SideBarTopSection = styled.div`
 `;
 
 const SideBarTitle = styled.h1`
-  color: #ffffff;
-  font-size: 24px;
+  background: -webkit-linear-gradient(135deg, #ea73ff, #ffa500);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  font-size: 28px;
   text-align: center;
 `;
 
@@ -70,6 +72,60 @@ const ButtonCtonainer = styled.div`
   flex-direction: column;
   align-items: center;
 `;
+
+const SelectCardText = styled.p`
+  text-align: left;
+  color: #ffffff;
+  margin: 80px 20px;
+  font-size: 20px;
+`;
+
+const DeckContainer = styled.div`
+  display: flex;
+  position: relative;
+  width: 190px;
+  flex-wrap: wrap;
+  margin: 60px auto 20px;
+`;
+
+const QuizDot = styled.button<{ status: string }>`
+  all: unset;
+  cursor: pointer;
+  width: 30px;
+  height: 30px;
+  border-radius: 15px;
+  margin: 3px;
+  background-color: ${(props) =>
+    props.status === "correct"
+      ? "#008000"
+      : props.status === "incorrect"
+      ? "#ff0000"
+      : "#e3e3e3"};
+  &:active {
+    transform: scale(0.97);
+  }
+`;
+
+const SelectedQuestion = styled.div<{ x: number; y: number }>`
+  width: 34px;
+  height: 34px;
+  border-radius: 18px;
+  border: 2px solid #ffa500;
+  transform: translate(${(props) => props.x}px, ${(props) => props.y}px);
+  transition: all 0.3s;
+  background-color: transparent;
+  position: absolute;
+  top: -1;
+  left: -1;
+  z-index: 100;
+`;
+
+const CorrectText = styled.p`
+  font-size: 24px;
+  color: #ffffff;
+  margin: 40px auto 20px;
+  min-width: 160px;
+`;
 export {
   SideBarContainer,
   SideBarTopSection,
@@ -78,4 +134,9 @@ export {
   QuizSkippedAndMissed,
   BottomSection,
   ButtonCtonainer,
+  SelectCardText,
+  DeckContainer,
+  QuizDot,
+  SelectedQuestion,
+  CorrectText,
 };

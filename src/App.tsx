@@ -32,6 +32,10 @@ function App() {
           buildQuizfromIncorrectAndSkippedCards={
             buildQuizfromIncorrectAndSkippedCards
           }
+          currentIndex={currentIndex}
+          correctCount={correctCount}
+          quiz={quiz}
+          setCurrentIndex={setCurrentIndex}
         />
         <ContentContainer>
           {screen === SCREENS.QUIZ_BUILDER && (

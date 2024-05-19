@@ -14,6 +14,8 @@ const useQuiz = (initialCards: FlashCard[]) => {
         status: "unanswered",
       }))
     );
+    setCurrentIndex(0);
+    setCorrectCount(0);
   }, [initialCards]);
 
   const incrementIndex = () => {
@@ -26,6 +28,9 @@ const useQuiz = (initialCards: FlashCard[]) => {
     const updatedCards = [...quiz];
     updatedCards[currentIndex].status = "correct";
     setQuiz(updatedCards);
+    setCorrectCount(
+      updatedCards.filter((cards) => cards.status === "correct").length
+    );
     incrementIndex();
   };
 
