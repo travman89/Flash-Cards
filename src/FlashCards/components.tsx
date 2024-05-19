@@ -97,8 +97,8 @@ const QuizButton = styled.button`
 `;
 
 const PreviousButton = styled(QuizButton)`
-  border: 1px solid #0000b0;
-  background-color: #0000b0;
+  border: 1px solid #54647c;
+  background-color: #54647c;
   &:active {
     transform: scale(0.97);
   }
@@ -115,8 +115,8 @@ const IncorrectButton = styled(QuizButton)`
 `;
 
 const CorrectButton = styled(QuizButton)`
-  border: 1px solid #00bb00;
-  background-color: #00bb00;
+  border: 1px solid #008000;
+  background-color: #008000;
   &:active {
     transform: scale(0.97);
   }

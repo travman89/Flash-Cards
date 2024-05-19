@@ -19,7 +19,6 @@ import { SCREENS } from "../constants";
 // TODO pass in the cardList as a prop
 const FlashCards = ({
   cards,
-  setScreen,
   currentIndex,
   setCurrentIndex,
   markCorrect,
@@ -46,10 +45,6 @@ const FlashCards = ({
   const previousCard = () => {
     setCurrentIndex(currentIndex - 1);
     setReveal(false);
-  };
-
-  const buildQuizPress = () => {
-    setScreen(SCREENS.QUIZ_BUILDER);
   };
 
   return (
@@ -79,7 +74,6 @@ const FlashCards = ({
         <IncorrectButton onClick={markIncorrect}>Incorrect</IncorrectButton>
         <CorrectButton onClick={markCorrect}>Correct</CorrectButton>
       </ButtonContainer>
-      {/* <BuildQuizButton onClick={buildQuizPress}>Build New Quiz</BuildQuizButton> */}
     </>
   );
 };

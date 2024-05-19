@@ -22,4 +22,60 @@ const SideBarTitle = styled.h1`
   text-align: center;
 `;
 
-export { SideBarContainer, SideBarTopSection, SideBarTitle };
+const QuizBuilderButton = styled.button`
+  all: unset;
+  cursor: pointer;
+  background-color: #008000;
+  color: #ffffff;
+  width: 180px;
+  height: 50px;
+  border-radius: 5px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+  margin: 10px auto;
+  transition: all 0.3s;
+  font-weight: bold;
+  &:active {
+    transform: scale(0.97);
+  }
+`;
+
+const QuizSkippedAndMissed = styled.button`
+  all: unset;
+  cursor: pointer;
+  background-color: #ff0000;
+  color: #ffffffff;
+  width: 180px;
+  height: 50px;
+  border-radius: 5px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+  margin: 10px auto;
+  transition: all 0.3s;
+  font-weight: bold;
+  &:active {
+    transform: scale(0.97);
+  }
+`;
+
+const BottomSection = styled.div`
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  justify-content: space-between;
+  margin-bottom: 30px;
+`;
+
+const ButtonCtonainer = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+`;
+export {
+  SideBarContainer,
+  SideBarTopSection,
+  SideBarTitle,
+  QuizBuilderButton,
+  QuizSkippedAndMissed,
+  BottomSection,
+  ButtonCtonainer,
+};

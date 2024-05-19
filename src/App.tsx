@@ -26,7 +26,13 @@ function App() {
   return (
     <>
       <AppContainer>
-        <SideBar />
+        <SideBar
+          setScreen={setScreen}
+          screen={screen}
+          buildQuizfromIncorrectAndSkippedCards={
+            buildQuizfromIncorrectAndSkippedCards
+          }
+        />
         <ContentContainer>
           {screen === SCREENS.QUIZ_BUILDER && (
             <QuizBuilder setQuiz={setSelectedCards} setScreen={setScreen} />
