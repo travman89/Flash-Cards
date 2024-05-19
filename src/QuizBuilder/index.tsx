@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import { useEffect, useState } from "react";
 import {
   SelectionCard,
@@ -76,7 +77,7 @@ const QuizBuilder = ({
     setSelectedCards([...cardList]);
   };
 
-  const selectSubject = (e: { target: { value: string } }) => {
+  const selectSubject = (e: any) => {
     const tempCards = [...selectedSubjectCards];
     if (selectedSubjectCards.includes(e.target.value)) {
       setSelectedSubjectCards(
@@ -88,7 +89,7 @@ const QuizBuilder = ({
     }
   };
 
-  const selectAuthor = (e: { target: { value: string } }) => {
+  const selectAuthor = (e: any) => {
     const tempCards = [...selectedAuthorCards];
     if (selectedAuthorCards.includes(e.target.value)) {
       setSelectedAuthorCards(
