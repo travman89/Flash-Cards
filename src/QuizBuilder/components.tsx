@@ -36,7 +36,7 @@ const SelectorButton = styled.button<{ selected: boolean }>`
   cursor: ${(props) => (props.selected ? "default" : "pointer")};
   transition: all 0.3s;
   font-weight: bold;
-  box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
   transition: all 0.3s;
   &:active {
     transform: scale(0.97);
@@ -44,15 +44,15 @@ const SelectorButton = styled.button<{ selected: boolean }>`
 `;
 
 const SubjectButton = styled(SelectorButton)`
-  background-color: ${(props) => (props.selected ? "#0000b0" : "white")};
-  color: ${(props) => (props.selected ? "white" : "#0000b0")};
-  border: 1px solid #0000b0;
+  background-color: ${(props) => (props.selected ? "#2a0085" : "white")};
+  color: ${(props) => (props.selected ? "white" : "#2a0085")};
+  border: 1px solid #2a0085;
 `;
 
 const AuthorButton = styled(SelectorButton)`
-  background-color: ${(props) => (props.selected ? "#FFA500" : "white")};
-  color: ${(props) => (props.selected ? "white" : "#FFA500")};
-  border: 1px solid #ffa500;
+  background-color: ${(props) => (props.selected ? "#ff9100" : "white")};
+  color: ${(props) => (props.selected ? "white" : "#ff9100")};
+  border: 1px solid #ff9100;
 `;
 
 const AllButton = styled(SelectorButton)`
@@ -91,14 +91,15 @@ const SubmitQuizButton = styled.button`
   all: unset;
   cursor: pointer;
   padding: 10px 20px;
-  background-color: #008000;
-  color: #fff;
   margin: 20px auto;
   text-align: center;
   border-radius: 5px;
   font-weight: bold;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
   transition: all 0.3s;
+  border: 1px solid #54647c;
+  color: #54647c;
+  background-color: #ffffff;
   &:active {
     transform: scale(0.97);
   }

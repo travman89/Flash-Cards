@@ -93,12 +93,13 @@ const QuizButton = styled.button`
   transition: all 0.3s;
   font-weight: bold;
   color: white;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 `;
 
 const PreviousButton = styled(QuizButton)`
   border: 1px solid #54647c;
-  background-color: #54647c;
+  color: #54647c;
+  background-color: #ffffff;
   &:active {
     transform: scale(0.97);
   }

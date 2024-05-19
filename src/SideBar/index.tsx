@@ -6,7 +6,7 @@ import {
   SideBarTitle,
   SideBarContainer,
   QuizBuilderButton,
-  QuizSkippedAndMissed,
+  // QuizSkippedAndMissed,
   BottomSection,
   ButtonCtonainer,
   SelectCardText,
@@ -20,7 +20,7 @@ import { findSelectorXY } from "./helpers";
 const SideBar = ({
   setScreen,
   screen,
-  buildQuizfromIncorrectAndSkippedCards,
+  // buildQuizfromIncorrectAndSkippedCards,
   currentIndex,
   correctCount,
   quiz,

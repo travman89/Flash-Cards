@@ -10,24 +10,31 @@ export enum CARD_SUBJECTS {
   CHAPTER_7 = "Chapter 7",
 }
 
+export enum AUTHORS {
+  AUTHOR_1 = "Author 1",
+  AUTHOR_2 = "Author 2",
+  AUTHOR_3 = "Author 3",
+  AUTHOR_4 = "Author 4",
+}
+
 const cardList: FlashCard[] = [
   {
     question: "Sample Question 1",
     answer: "Sample Answer 1",
     subject: CARD_SUBJECTS.CHAPTER_1,
-    author: "Author 1",
+    author: AUTHORS.AUTHOR_1,
   },
   {
     question: "Sample Question 2",
     answer: "Sample Answer 2",
     subject: CARD_SUBJECTS.CHAPTER_1,
-    author: "Author 1",
+    author: AUTHORS.AUTHOR_1,
   },
   {
     question: "Sample Question 3",
     answer: "Sample Answer 3",
     subject: CARD_SUBJECTS.CHAPTER_2,
-    author: "Author 1",
+    author: AUTHORS.AUTHOR_1,
   },
   {
     question: "Sample Question 4",
@@ -45,13 +52,13 @@ const cardList: FlashCard[] = [
     question: "Sample Question 6",
     answer: "Sample Answer 6",
     subject: CARD_SUBJECTS.CHAPTER_3,
-    author: "Author 1",
+    author: AUTHORS.AUTHOR_1,
   },
   {
     question: "Sample Question 7",
     answer: "Sample Answer 7",
     subject: CARD_SUBJECTS.CHAPTER_4,
-    author: "Author 1",
+    author: AUTHORS.AUTHOR_1,
   },
   {
     question: "Sample Question 8",

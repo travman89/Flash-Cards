@@ -15,12 +15,8 @@ function App() {
     currentIndex,
     setCurrentIndex,
     correctCount,
-    showResults,
     markCorrect,
     markIncorrect,
-    resetQuiz,
-    startQuiz,
-    endQuiz,
     buildQuizfromIncorrectAndSkippedCards,
   } = useQuiz(selectedCards);
   return (

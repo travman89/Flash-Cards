@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { ANSWER } from "../types";
 
 const SideBarContainer = styled.div`
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.4);
@@ -17,8 +18,9 @@ const SideBarTopSection = styled.div`
 `;
 
 const SideBarTitle = styled.h1`
-  background: -webkit-linear-gradient(135deg, #ea73ff, #ffa500);
+  background: -webkit-linear-gradient(135deg, #ea73ff, #ff9100);
   -webkit-background-clip: text;
+  background-clip: text;
   -webkit-text-fill-color: transparent;
   font-size: 28px;
   text-align: center;
@@ -27,12 +29,12 @@ const SideBarTitle = styled.h1`
 const QuizBuilderButton = styled.button`
   all: unset;
   cursor: pointer;
-  background-color: #008000;
+  background-color: #ff9100;
   color: #ffffff;
   width: 180px;
   height: 50px;
   border-radius: 5px;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
   margin: 10px auto;
   transition: all 0.3s;
   font-weight: bold;
@@ -96,9 +98,9 @@ const QuizDot = styled.button<{ status: string }>`
   border-radius: 15px;
   margin: 3px;
   background-color: ${(props) =>
-    props.status === "correct"
+    props.status === ANSWER.CORRECT
       ? "#008000"
-      : props.status === "incorrect"
+      : props.status === ANSWER.INCORRECT
       ? "#ff0000"
       : "#e3e3e3"};
   &:active {
@@ -110,7 +112,7 @@ const SelectedQuestion = styled.div<{ x: number; y: number }>`
   width: 34px;
   height: 34px;
   border-radius: 18px;
-  border: 2px solid #ffa500;
+  border: 2px solid #ff9100;
   transform: translate(${(props) => props.x}px, ${(props) => props.y}px);
   transition: all 0.3s;
   background-color: transparent;

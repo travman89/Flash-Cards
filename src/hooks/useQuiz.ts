@@ -1,17 +1,16 @@
 import { useEffect, useState } from "react";
-import { FlashCard, QuizQuestion } from "../types";
+import { ANSWER, FlashCard, QuizQuestion } from "../types";
 
 const useQuiz = (initialCards: FlashCard[]) => {
   const [quiz, setQuiz] = useState<QuizQuestion[]>([]);
   const [currentIndex, setCurrentIndex] = useState(0);
   const [correctCount, setCorrectCount] = useState(0);
-  const [showResults, setShowResults] = useState(false);
 
   useEffect(() => {
     setQuiz(
       initialCards.map((card) => ({
         ...card,
-        status: "unanswered",
+        status: ANSWER.UNANSWERED,
       }))
     );
     setCurrentIndex(0);
@@ -26,17 +25,17 @@ const useQuiz = (initialCards: FlashCard[]) => {
 
   const markCorrect = () => {
     const updatedCards = [...quiz];
-    updatedCards[currentIndex].status = "correct";
+    updatedCards[currentIndex].status = ANSWER.CORRECT;
     setQuiz(updatedCards);
     setCorrectCount(
-      updatedCards.filter((cards) => cards.status === "correct").length
+      updatedCards.filter((cards) => cards.status === ANSWER.CORRECT).length
     );
     incrementIndex();
   };
 
   const markIncorrect = () => {
     const updatedCards = [...quiz];
-    updatedCards[currentIndex].status = "incorrect";
+    updatedCards[currentIndex].status = ANSWER.INCORRECT;
     setQuiz(updatedCards);
     incrementIndex();
   };
@@ -44,22 +43,24 @@ const useQuiz = (initialCards: FlashCard[]) => {
   const resetQuiz = () => {
     setCorrectCount(0);
     setCurrentIndex(0);
-    setShowResults(false);
+    initialCards.map((card) => ({
+      ...card,
+      status: ANSWER.UNANSWERED,
+    }));
   };
 
   const startQuiz = () => {
     setCurrentIndex(0);
     setCorrectCount(0);
-    setShowResults(false);
-  };
-
-  const endQuiz = () => {
-    setShowResults(true);
   };
 
   const buildQuizfromIncorrectAndSkippedCards = () => {
-    const incorrectCards = quiz.filter((card) => card.status === "incorrect");
-    const skippedCards = quiz.filter((card) => card.status === "unanswered");
+    const incorrectCards = quiz.filter(
+      (card) => card.status === ANSWER.INCORRECT
+    );
+    const skippedCards = quiz.filter(
+      (card) => card.status === ANSWER.UNANSWERED
+    );
     setQuiz([...incorrectCards, ...skippedCards]);
   };
 
@@ -68,12 +69,10 @@ const useQuiz = (initialCards: FlashCard[]) => {
     currentIndex,
     setCurrentIndex,
     correctCount,
-    showResults,
     markCorrect,
     markIncorrect,
     resetQuiz,
     startQuiz,
-    endQuiz,
     buildQuizfromIncorrectAndSkippedCards,
   };
 };
