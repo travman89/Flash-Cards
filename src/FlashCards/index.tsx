@@ -47,6 +47,16 @@ const FlashCards = ({
     setReveal(false);
   };
 
+  const correctButtonPressed = () => {
+    markCorrect();
+    setReveal(false);
+  };
+
+  const incorrectButtonPress = () => {
+    markIncorrect();
+    setReveal(false);
+  };
+
   return (
     <>
       <CardContainer>
@@ -71,8 +81,10 @@ const FlashCards = ({
         ) : (
           <NextButton onClick={nextCard}>Next</NextButton>
         )}
-        <IncorrectButton onClick={markIncorrect}>Incorrect</IncorrectButton>
-        <CorrectButton onClick={markCorrect}>Correct</CorrectButton>
+        <IncorrectButton onClick={incorrectButtonPress}>
+          Incorrect
+        </IncorrectButton>
+        <CorrectButton onClick={correctButtonPressed}>Correct</CorrectButton>
       </ButtonContainer>
     </>
   );

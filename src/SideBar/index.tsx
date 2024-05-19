@@ -46,7 +46,7 @@ const SideBar = ({
   return (
     <SideBarContainer>
       <SideBarTopSection>
-        <SideBarTitle>Brain Blast 🚀</SideBarTitle>
+        <SideBarTitle>Flash Ahhh ⚡</SideBarTitle>
       </SideBarTopSection>
 
       <BottomSection>
